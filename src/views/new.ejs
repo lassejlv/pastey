@@ -1,0 +1,90 @@
+<style>
+  .form-control {
+    background: none !important;
+    color: #d92b42 !important;
+    box-shadow: none !important;
+    resize: none !important;
+    font-family: monospace;
+    border-color: #999 !important;
+    filter: drop-shadow(20px 20px 60px #d92b42);
+  }
+
+  .form-control:hover {
+    border-color: white !important;
+  }
+</style>
+
+<p class="text-muted">
+  <b>
+    Welcome to Pastey, this helps you to share code very easy for your freinds
+    or other things. You can paste your code below or type in manually!
+  </b>
+</p>
+
+<form id="form">
+  <textarea
+    id="code"
+    class="form-control"
+    rows="20"
+    placeholder="Paste or type code in here..."
+    cols="50"
+  ></textarea>
+
+  <select id="lang" class="mt-2 form-control">
+    <option>Select language</option>
+    <% lang.map((l) => { %>
+    <option value="<%= l  %>"><%= l %></option>
+    <% }) %>
+  </select>
+
+  <br />
+
+  <button
+    class="btn btn-outline-light text-white mt-2"
+    id="submit"
+    type="submit"
+    disabled
+  >
+    <i class="fa-solid fa-save"></i> Save
+  </button>
+</form>
+
+<script>
+  const time = Date.now();
+  const code = document.getElementById("code");
+  const lang = document.getElementById("lang");
+  const button = document.getElementById("submit");
+
+  code.addEventListener("keyup", () => {
+    if (code.value.length < 15) {
+      button.disabled = true;
+      console.warn(`CodeContentTypeString be > than 15`);
+      console.warn(`Response Time: ${Date.now - time}ms`);
+    } else {
+      button.disabled = false;
+      console.log(`ButtonSubmit is set to disabled:false`);
+      console.warn(`Response Time: ${Date.now - time}ms`);
+    }
+
+    console.log(`Length: ${code.value.length}`);
+    console.warn(`Response Time: ${Date.now() - time}ms`);
+  });
+
+  const form = document
+    .getElementById("form")
+    .addEventListener("submit", (e) => {
+      e.preventDefault();
+
+      fetch(`/new?code=${code.value}&lang=${lang.value}`, {
+        method: "POST",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          alert(data.message);
+          window.location.href = data.url;
+        })
+        .catch((e) => {
+          return;
+        });
+    });
+</script>
