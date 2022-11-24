@@ -23,6 +23,7 @@
 
 <form id="form">
   <textarea
+    autofocus
     id="code"
     class="form-control"
     rows="20"
@@ -74,6 +75,8 @@
     .getElementById("form")
     .addEventListener("submit", (e) => {
       e.preventDefault();
+
+      console.log(autosize(code));
 
       fetch(`/new?code=${code.value}&lang=${lang.value}`, {
         method: "POST",

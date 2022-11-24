@@ -1,0 +1,37 @@
+<div
+  class="modal fade"
+  id="logInModal"
+  tabindex="-1"
+  aria-labelledby="logInModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark">
+      <div class="modal-header">
+        <h1 class="modal-title text-white fs-5" id="logInModalLabel">
+          Continue with:
+        </h1>
+        <button
+          type="button"
+          class="btn-close text-white"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="loader bg-dark">
+          <div class="spinner-border text-danger" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+
+        <button class="btn btn-light btn-lg">
+          <i class="fa-brands fa-google"></i> Google
+        </button>
+        <button class="btn btn-outline-light btn-lg">
+          <i class="fa-brands fa-github"></i> Github
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

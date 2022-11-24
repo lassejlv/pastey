@@ -5,6 +5,7 @@
       style="
         font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
           'Lucida Sans', Arial, sans-serif;
+        user-select: none;
       "
       ><em>Pasty</em></a
     >
@@ -12,10 +13,14 @@
       <button
         class="btn btn-secondary"
         style="font-weight: bolder"
-        type="submit"
+        type="button"
+        data-bs-toggle="modal"
+        data-bs-target="#logInModal"
       >
         <i class="fa-solid fa-sign-in-alt"></i> Login
       </button>
     </div>
   </div>
 </nav>
+
+<%- include("./login.ejs") %>
