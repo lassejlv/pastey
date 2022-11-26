@@ -10,15 +10,42 @@
       ><em>Pasty</em></a
     >
     <div class="d-flex" role="search">
+      <% if (user) { %>
+      <a
+        href="/user?id=<%= user.id %>"
+        class="btn btn-success"
+        style="font-weight: bolder; filter: drop-shadow(0px 20px 60px #198754)"
+        type="button"
+      >
+        <img
+          src="<%= user.avatar %>"
+          alt="<%= user.id %>"
+          class="rounded-circle"
+          width="25"
+          height="25"
+        />
+        <%= user.username %>
+      </a>
+      <div>-</div>
+      <a
+        href="/auth/logout"
+        class="btn btn-danger"
+        style="font-weight: bolder; filter: drop-shadow(20px 20px 60px #d92b42)"
+        type="button"
+      >
+        <i class="fa-solid fa-power-off"></i>
+      </a>
+      <% } else { %>
       <button
         class="btn btn-secondary"
-        style="font-weight: bolder"
+        style="font-weight: bolder; filter: drop-shadow(20px 20px 60px #6c757d)"
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#logInModal"
       >
         <i class="fa-solid fa-sign-in-alt"></i> Login
       </button>
+      <% } %>
     </div>
   </div>
 </nav>

@@ -34,7 +34,6 @@
       <style>
         pre {
           background: none;
-          color: #d92b42;
           box-shadow: none;
           resize: none;
           font-family: monospace;
@@ -50,7 +49,7 @@
       </style>
 
       <div>
-        <pre><code class="language-<%= code.language  %>" id="code"></code></pre>
+        <pre><code class="language-<%= code.language  %>" id="code"><%= code.content %></code></pre>
 
         <br />
       </div>
@@ -62,8 +61,6 @@
       integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
       crossorigin="anonymous"
     ></script>
-    <script>
-      document.getElementById("code").innerHTML = "<%- code.content_format %>";
-    </script>
+    <script></script>
   </body>
 </html>
